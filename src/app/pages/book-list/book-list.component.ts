@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BooksService} from "../../services/books/books.service";
 import {Book} from "../../interfaces/book.interface";
+import {ROUTES} from "../../constants/router.const";
 
 @Component({
   selector: 'app-book-list',
@@ -10,6 +11,7 @@ import {Book} from "../../interfaces/book.interface";
 export class BookListComponent implements OnInit {
 
   public books!: Book[] ;
+  public readonly routes: typeof ROUTES = ROUTES;
 
   constructor(public booksService: BooksService) {
   }

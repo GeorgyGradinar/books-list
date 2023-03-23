@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router";
 import { ROUTES } from '../../constants/router.const';
 
 @Component({
@@ -9,7 +8,4 @@ import { ROUTES } from '../../constants/router.const';
 })
 export class HeaderComponent {
   public readonly routes: typeof ROUTES = ROUTES;
-
-  constructor(private router: Router) {
-  }
 }

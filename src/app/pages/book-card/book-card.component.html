@@ -1,6 +1,6 @@
 <div class="block-books">
 
-  <section *ngIf="book" [formGroup]="bookCardForm">
+  <section *ngIf="book" [formGroup]="bookCardForm" (ngSubmit)="submitBook()">
     <mat-form-field class="example-full-width">
       <mat-label>name</mat-label>
       <input matInput class="name" formControlName="name">
@@ -39,6 +39,7 @@
       <input matInput formControlName="genre" >
     </mat-form-field>
 
+    <button mat-raised-button color="warn">{{ textSubmitButton }}</button>
   </section>
 
 </div>

@@ -1,13 +1,14 @@
 <div class="block-books">
 
-  <section *ngFor="let book of books">
+  <section *ngFor="let book of books"
+           [routerLink]="['/', routes.BOOK_CARD, book.id]">
     <h1 class="name">{{ book.name }}</h1>
     <h2 class="author">{{ book.author }}</h2>
     <p>{{ book.description }}</p>
     <div class="detail-book">
       <p>кол-во страниц: {{ book.pages }}</p>
       <div class="languages">
-        <p *ngFor="let language of book.languages">{{ language }}</p>
+        <p >{{ book.languages }}</p>
       </div>
       <p>{{ book.genre }}</p>
     </div>

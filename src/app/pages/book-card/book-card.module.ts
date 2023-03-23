@@ -10,7 +10,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
 
 const routes: Routes = [
-  {path: '', component: BookCardComponent},
+  {path: ':id', component: BookCardComponent},
 ];
 
 @NgModule({

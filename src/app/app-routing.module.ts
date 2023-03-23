@@ -6,7 +6,7 @@ const routes: Routes = [
   {path: '', redirectTo: ROUTES.BOOK_LIST, pathMatch: 'full'},
   {
     path: ROUTES.BOOK_LIST,
-    loadChildren: () => import('./pages/book-list/book-list.module').then(m => m.BookListModule),
+    loadChildren: () => import('./pages/book-list/book-list.module').then(m => m.BookListModule)
   },
   {
     path: ROUTES.BOOK_CARD,
