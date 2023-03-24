@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
+
+  ::ng-deep .table {
+    width: 100%;
+    max-width: 1000px;
+
+    .mat-column-actions {
+      width: 50px;
+    }
+  }
+
+  .add-button {
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+  }
+}
+
+

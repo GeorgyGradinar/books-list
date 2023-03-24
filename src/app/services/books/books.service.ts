@@ -11,19 +11,19 @@ export class BooksService {
   constructor(private readonly httpClient: HttpClient) { }
 
   public getAllBooks(): Observable<Book[]> {
-    return this.httpClient.get<Book[]>(' http://localhost:3000/posts');
+    return this.httpClient.get<Book[]>(' http://localhost:3000/books');
   }
 
-  public getBookById(taskId: number): Observable<Book> {
-    return this.httpClient.get<Book>(` http://localhost:3000/posts/tasks/${taskId}`);
-  }
+  // public getBookById(taskId: number): Observable<Book> {
+  //   return this.httpClient.get<Book>(` http://localhost:3000/posts/tasks/${taskId}`);
+  // }
+  //
+  // public updateBook(task: Book): Observable<Book> {
+  //   return this.httpClient.patch<Book>(`http://localhost:3000/tasks/${task.id}`, task);
+  // }
 
-  public updateBook(task: Book): Observable<Book> {
-    return this.httpClient.patch<Book>(`http://localhost:3000/tasks/${task.id}`, task);
-  }
-
-  public createBook(task: Book): Observable<Book> {
-    return this.httpClient.post<Book>(`http://localhost:3000/tasks`, task);
+  public createBook(books: Book): Observable<Book> {
+    return this.httpClient.post<Book>(`http://localhost:3000/books`, books);
   }
 
   // public removeTask(taskId: number): Observable<boolean> {

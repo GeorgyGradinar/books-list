@@ -1,4 +1,5 @@
-export enum ROUTES{
+export enum ROUTES {
   BOOK_LIST = 'book-list',
   BOOK_CARD = 'book-card',
+  AUTHORS = 'authors',
 }

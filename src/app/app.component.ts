@@ -14,6 +14,5 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.httpClient.get<Book>(' http://localhost:3000/posts').subscribe(el => console.log(el))
   }
 }

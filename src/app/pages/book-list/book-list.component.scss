@@ -1,10 +1,10 @@
-.block-books{
+.block-books {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 
-  section{
+  section {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -15,24 +15,23 @@
     cursor: pointer;
     font-weight: 400;
 
-    .name{
+    .name {
       font-weight: 600;
     }
 
-    .author{
+    .author {
       font-weight: 500;
     }
 
-    .detail-book{
+    .detail-book {
       display: flex;
       justify-content: space-between;
       gap: 20px;
 
-      .languages{
+      .languages {
         display: flex;
         gap: 10px;
       }
     }
   }
-
 }

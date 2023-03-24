@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: ROUTES.BOOK_CARD,
     loadChildren: () => import('./pages/book-card/book-card.module').then(m => m.BookCardModule),
+  },
+  {
+    path: ROUTES.AUTHORS,
+    loadChildren: () => import('./pages/authors/authors.module').then(m => m.AuthorsModule),
   }
 ];
 

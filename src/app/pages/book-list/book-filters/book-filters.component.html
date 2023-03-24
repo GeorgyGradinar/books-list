@@ -1,0 +1,46 @@
+<form class="form" [formGroup]="filters">
+  <mat-form-field>
+    <mat-label>Поиск</mat-label>
+    <input matInput placeholder="Поиск" formControlName="search">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Автор</mat-label>
+    <mat-select multiple="true" formControlName="authors">
+      <mat-option *ngFor="let author of authors" [value]="author">
+        {{author}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Язык</mat-label>
+    <mat-select multiple="true" formControlName="languages">
+      <mat-option *ngFor="let language of languages" [value]="language">
+        {{language}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Жанр</mat-label>
+    <mat-select formControlName="genre">
+      <mat-option *ngFor="let genre of genres" [value]="genre">
+        {{genre}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>От</mat-label>
+    <input matInput placeholder="От" formControlName="pageStart" type="number">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>До</mat-label>
+    <input matInput placeholder="До" formControlName="pageEnd" type="number">
+  </mat-form-field>
+
+  <button mat-stroked-button color="primary" (click)="clearFilters()">Очистить</button>
+</form>
+

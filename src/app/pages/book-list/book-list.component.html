@@ -1,15 +1,18 @@
+<app-book-filters *ngIf="books"
+                  [books]="books"
+                  (changeFilters)="changeFilteredBooks($event)">
+</app-book-filters>
+
 <div class="block-books">
 
-  <section *ngFor="let book of books"
+  <section *ngFor="let book of filteredBooks"
            [routerLink]="['/', routes.BOOK_CARD, book.id]">
     <h1 class="name">{{ book.name }}</h1>
     <h2 class="author">{{ book.author }}</h2>
     <p>{{ book.description }}</p>
     <div class="detail-book">
       <p>кол-во страниц: {{ book.pages }}</p>
-      <div class="languages">
-        <p >{{ book.languages }}</p>
-      </div>
+      <p >{{ book.language }}</p>
       <p>{{ book.genre }}</p>
     </div>
   </section>

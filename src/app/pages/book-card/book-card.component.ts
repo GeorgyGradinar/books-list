@@ -1,9 +1,12 @@
 import {Component} from '@angular/core';
 import {Book} from "../../interfaces/book.interface";
 import {BooksService} from "../../services/books/books.service";
-import {AuthorsService} from "../../services/authors/authors.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {AuthorsService} from "../../services/authors.service";
+import {Author} from "../../interfaces/author.interface";
+import {LANGUAGES} from "../../constants/languages.const";
+import {ROUTES} from "../../constants/router.const";
 
 @Component({
   selector: 'app-book-card',
@@ -12,42 +15,52 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class BookCardComponent {
 
+  public currentId!: number;
   public bookCardForm!: FormGroup;
   public textSubmitButton!: string;
-  public book!: Book;
-  public authors!: string[];
-  public languages: string[] = ['English', 'Russian', 'Spanish', 'France', 'German'];
+  public book?: Book;
+  public authors!: Author[];
+  public languages: string[] = LANGUAGES;
 
   constructor(public booksService: BooksService,
               public authorsService: AuthorsService,
               private formBuilder: FormBuilder,
-              private route: ActivatedRoute
-              ) {
-    console.log(this.route.snapshot.paramMap.get('id'))
-
+              private route: ActivatedRoute,
+              private router: Router
+  ) {
   }
 
   public ngOnInit(): void {
-
     this.booksService.getAllBooks().subscribe(allBooks => {
-      this.book = allBooks[0];
+      this.currentId = Number(this.route.snapshot.paramMap.get('id'))!
+      this.book = allBooks.find(item => item.id === this.currentId);
 
       this.bookCardForm = this.formBuilder.group({
-        name: [this.book.name, Validators.required],
-        author: [this.book.author, Validators.required],
-        description: [this.book.description, Validators.required],
-        pages: [this.book.pages, Validators.required],
-        language: [this.book.languages, Validators.required],
-        genre: [this.book.genre, Validators.required],
+        name: [this.book?.name || '', Validators.required],
+        author: [this.book?.author || '', Validators.required],
+        description: [this.book?.description || '', Validators.required],
+        pages: [this.book?.pages || '', Validators.required],
+        language: [this.book?.language || '', Validators.required],
+        genre: [this.book?.genre || '', Validators.required],
       })
 
-      this.textSubmitButton = this.book.id ? 'Сохранить' : 'Создать';
+      this.textSubmitButton = this.book?.id ? 'Сохранить' : 'Создать';
     });
 
-    this.authorsService.getAllAuthor().subscribe(authors => this.authors = authors);
+    this.authorsService.getAllAuthors().subscribe(authors => this.authors = authors);
   }
 
   public submitBook(): void {
+    if (this.bookCardForm.invalid) {
+      return
+    }
 
+    if (this.currentId) {
+      this.booksService.createBook(this.bookCardForm.value).subscribe();
+    } else {
+      this.booksService.createBook(this.bookCardForm.value).subscribe()
+    }
+
+    this.router.navigate([ROUTES.BOOK_LIST]);
   }
 }
