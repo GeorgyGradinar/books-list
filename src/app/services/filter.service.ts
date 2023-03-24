@@ -9,7 +9,7 @@ export class FilterService {
 
   public getFilteredBooks(filters: Filters, books: Book[]): Book[] {
     return books.filter((book: Book) => {
-      return (this.isIncludeSearch(filters.search, book.name) || this.isIncludeSearch(filters.search, book.description)) &&
+      return (this.hasSearchText(filters.search, book.name) || this.hasSearchText(filters.search, book.description)) &&
         this.hasGenre(filters.genre, book.genre) &&
         this.isIncludeFilter(filters.languages, book.language) &&
         this.isIncludeFilter(filters.authors, book.author) &&
@@ -26,7 +26,7 @@ export class FilterService {
     return genre === bookGenre;
   }
 
-  public isIncludeSearch(filter: string, bookInfo: string): boolean {
+  public hasSearchText(filter: string, bookInfo: string): boolean {
     if (!filter) {
       return true;
     }
