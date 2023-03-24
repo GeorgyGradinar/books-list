@@ -7,7 +7,7 @@ import {AuthorsService} from "../../services/authors.service";
 import {Author} from "../../interfaces/author.interface";
 import {LANGUAGES} from "../../constants/languages.const";
 import {ROUTES} from "../../constants/router.const";
-import {take} from "rxjs";
+import {take, tap} from "rxjs";
 
 @Component({
   selector: 'app-book-card',
@@ -15,14 +15,13 @@ import {take} from "rxjs";
   styleUrls: ['./book-card.component.scss']
 })
 export class BookCardComponent implements OnInit{
-
   public currentId!: number;
   public bookCardForm!: FormGroup;
   public textSubmitButton!: string;
   public book?: Book;
   public authors!: Author[];
-  public languages: string[] = LANGUAGES;
   public isReadMode!: boolean;
+  public readonly languages: string[] = LANGUAGES;
   public readonly routes: typeof ROUTES = ROUTES;
 
   constructor(public booksService: BooksService,
@@ -34,10 +33,11 @@ export class BookCardComponent implements OnInit{
   }
 
   public ngOnInit(): void {
-    this.booksService.getAllBooks().pipe(take(1)).subscribe(allBooks => {
+    this.booksService.getAllBooks().pipe(
+      take(1)
+    ).subscribe((allBooks: Book[]) => {
       this.currentId = Number(this.route.snapshot.paramMap.get('id'))!;
-      this.book = allBooks.find(item => item.id === this.currentId);
-
+      this.book = allBooks.find(book => book.id === this.currentId);
       this.isReadMode = !!this.book;
 
       this.bookCardForm = this.formBuilder.group({
@@ -50,14 +50,14 @@ export class BookCardComponent implements OnInit{
       });
 
       this.textSubmitButton = this.book?.id ? 'Сохранить' : 'Создать';
-
     });
 
-    this.authorsService.getAllAuthors().pipe(take(1)).subscribe(authors => this.authors = authors);
+    this.authorsService.getAllAuthors().pipe(
+      take(1)
+    ).subscribe(authors => this.authors = authors);
   }
 
   public submitBook(): void {
-
     if (this.bookCardForm.invalid) {
       return;
     }
@@ -70,9 +70,8 @@ export class BookCardComponent implements OnInit{
     const request = this.currentId ? this.booksService.updateBook(updatedAuthor) : this.booksService.createBook(updatedAuthor);
 
     request.pipe(
-      take(1)
+      take(1),
+      tap(() => this.router.navigate([ROUTES.BOOK_LIST]))
     ).subscribe();
-
-    this.router.navigate([ROUTES.BOOK_LIST]);
   }
 }
