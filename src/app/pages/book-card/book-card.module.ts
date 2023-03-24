@@ -8,6 +8,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
+import {SharedComponentsModule} from "../../components/shared-components.module";
 
 const routes: Routes = [
   {path: ':id', component: BookCardComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
     MatMenuModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    SharedComponentsModule
   ]
 })
 export class BookCardModule { }

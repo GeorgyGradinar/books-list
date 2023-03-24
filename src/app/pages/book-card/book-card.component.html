@@ -1,45 +1,49 @@
-<div class="block-book">
+<form class="book" *ngIf="bookCardForm && !isReadMode; else bookCard" [formGroup]="bookCardForm">
+  <mat-form-field class="example-full-width">
+    <mat-label>Название</mat-label>
+    <input matInput class="name" formControlName="name">
+  </mat-form-field>
 
-  <form class="book" *ngIf="bookCardForm" [formGroup]="bookCardForm" (ngSubmit)="submitBook()">
-    <mat-form-field class="example-full-width">
-      <mat-label>name</mat-label>
-      <input matInput class="name" formControlName="name">
-    </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Автор</mat-label>
+    <mat-select formControlName="author">
+      <mat-option *ngFor="let author of authors" [value]="author.name + ' ' + author.lastName">
+        {{author.name}} {{ author.lastName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Автор</mat-label>
-      <mat-select formControlName="author">
-        <mat-option *ngFor="let author of authors" [value]="author.name + ' ' + author.lastName">
-          {{author.name}} {{ author.lastName}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Описание</mat-label>
+    <textarea matInput cdkTextareaAutosize formControlName="description"></textarea>
+  </mat-form-field>
 
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Описание</mat-label>
-      <textarea matInput cdkTextareaAutosize formControlName="description"></textarea>
-    </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Страницы</mat-label>
+    <input matInput type="number" formControlName="pages">
+  </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-      <mat-label>Страницы</mat-label>
-      <input matInput type="number" formControlName="pages">
-    </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Язык</mat-label>
+    <mat-select formControlName="language">
+      <mat-option *ngFor="let language of languages" [value]="language">
+        {{language}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Язык</mat-label>
-      <mat-select formControlName="language">
-        <mat-option *ngFor="let language of languages" [value]="language">
-          {{language}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Жанр</mat-label>
+    <input matInput formControlName="genre">
+  </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-      <mat-label>Жанр</mat-label>
-      <input matInput formControlName="genre">
-    </mat-form-field>
+  <button mat-raised-button class="button" color="warn" (click)="submitBook()">{{ textSubmitButton }}</button>
+</form>
 
-    <button mat-raised-button color="warn">{{ textSubmitButton }}</button>
-  </form>
+<ng-template #bookCard>
+  <ng-container *ngIf="book">
+    <app-book-show [book]="book"></app-book-show>
+    <button mat-raised-button class="button" color="warn" (click)="this.isReadMode = false">Редактировать</button>
+  </ng-container>
+</ng-template>
 
-</div>

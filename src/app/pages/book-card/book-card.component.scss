@@ -1,8 +1,9 @@
-
-.block-book {
+:host {
   width: 100vw;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 
   .book{
     width: 80%;
@@ -10,9 +11,12 @@
     flex-direction: column;
     gap: 20px;
 
-
     .author{
       width: 200px;
     }
+  }
+
+  .button{
+    width: 200px;
   }
 }

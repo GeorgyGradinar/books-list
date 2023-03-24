@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { debounceTime, Subscription } from 'rxjs';
-import { LANGUAGES } from 'src/app/constants/languages.const';
-import { Filters } from '../../../interfaces/filters.interface';
-import { Book } from '../../../interfaces/book.interface';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {debounceTime, Subscription} from 'rxjs';
+import {LANGUAGES} from 'src/app/constants/languages.const';
+import {Filters} from '../../../interfaces/filters.interface';
+import {Book} from '../../../interfaces/book.interface';
 
 @Component({
   selector: 'app-book-filters',
@@ -51,7 +51,7 @@ export class BookFiltersComponent implements OnInit, OnDestroy {
     this.filters.reset();
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 }

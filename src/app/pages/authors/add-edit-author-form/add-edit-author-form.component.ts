@@ -37,10 +37,10 @@ export class AddEditAuthorFormComponent {
       return;
     }
 
-    const updatedAuthor: Author = {
-      ...this.currentAuthor,
-      ...this.authorForm.value
-    }
+      const updatedAuthor: Author = {
+        ...this.currentAuthor,
+        ...this.authorForm.value
+      }
 
     const request = updatedAuthor.id ? this.authorsService.updateAuthor(updatedAuthor) : this.authorsService.createAuthor(updatedAuthor);
 
