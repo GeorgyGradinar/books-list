@@ -1,27 +1,33 @@
 # BooksList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.0.
+This project was developed lika a small technical test
 
-## Development server
+## Quick start
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### clone the repo
+Go to your developer folder Clone this project repository to your local machine
 
-## Code scaffolding
+#### install
+`npm install`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### serve
+`npm run server`
+`npm run start`
 
-## Build
+## Screenshots
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![image](https://user-images.githubusercontent.com/80816461/227553862-f7054e8e-7497-46da-abb0-677e7e82bf0d.png)
+![image](https://user-images.githubusercontent.com/80816461/227554056-06ca9e16-7efb-4f67-966b-d9a5de68e9c6.png)
+![image](https://user-images.githubusercontent.com/80816461/227554132-06cce576-a224-4d5f-b9af-447481223d97.png)
+![image](https://user-images.githubusercontent.com/80816461/227554213-826229fc-fd76-4ef8-ad53-cc3dbe3db127.png)
+![image](https://user-images.githubusercontent.com/80816461/227554289-1def71b4-9de3-4442-8c41-6e2d4f59559f.png)
+![image](https://user-images.githubusercontent.com/80816461/227554351-73d408f0-7a06-47fc-ad13-038c4985202c.png)
 
-## Running unit tests
+## Tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Running unit tests
+`npm run test`
 
-## Running end-to-end tests
+### Screenshot of executed tests
+![image](https://user-images.githubusercontent.com/80816461/227549774-e66b1988-3654-4bab-86bd-24aa4b5e1072.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
