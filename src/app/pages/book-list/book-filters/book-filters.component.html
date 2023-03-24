@@ -4,7 +4,7 @@
     <input matInput placeholder="Поиск" formControlName="search">
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field>
     <mat-label>Автор</mat-label>
     <mat-select multiple="true" formControlName="authors">
       <mat-option *ngFor="let author of authors" [value]="author">
@@ -13,7 +13,7 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field>
     <mat-label>Язык</mat-label>
     <mat-select multiple="true" formControlName="languages">
       <mat-option *ngFor="let language of languages" [value]="language">
@@ -22,7 +22,7 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field>
     <mat-label>Жанр</mat-label>
     <mat-select formControlName="genre">
       <mat-option *ngFor="let genre of genres" [value]="genre">
@@ -41,6 +41,6 @@
     <input matInput placeholder="До" formControlName="pageEnd" type="number">
   </mat-form-field>
 
-  <button mat-stroked-button color="primary" (click)="clearFilters()">Очистить</button>
+  <button mat-button color="primary" (click)="clearFilters()">Очистить</button>
 </form>
 

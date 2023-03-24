@@ -1,12 +1,35 @@
-.block-books {
+@import '../../../assets/colors';
+
+:host {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 40px 40px 60px;
+  width: 100%;
+}
+
+.block-books {
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 
   .create-new-book{
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 60px;
+    bottom: 60px;
+  }
+
+  app-book-show {
+    border: 1px solid $light;
+    transition: background-color 0.2s;
+    width: calc(50% - 10px);
+
+    &:hover {
+      background-color: rgba($light, 0.2);
+    }
+  }
+
+  .info-message {
+    font-weight: 600;
+    font-size: 24px;
   }
 }

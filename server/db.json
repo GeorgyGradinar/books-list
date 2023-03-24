@@ -23,7 +23,7 @@
       "author": "ggg gggg",
       "description": "hrthtrh",
       "pages": 45678,
-      "language": "France",
+      "language": "Немецкий",
       "genre": "rtrthtrhtrh",
       "id": 957689678
     },
@@ -50,7 +50,7 @@
       "author": "ggg gggg",
       "description": "hrthtrh",
       "pages": 45678,
-      "language": "France",
+      "language": "Немецкий",
       "genre": "rtrthtrhtrh",
       "id": 957689681
     },
@@ -62,6 +62,15 @@
       "language": "Русский",
       "genre": "Биографии и мемуары, Зарубежная публицистика, Истории из жизни",
       "id": 957689682
+    },
+    {
+      "name": "fdfdsf",
+      "author": "Имя Фамилия",
+      "description": "sdfdsfd",
+      "pages": 4545,
+      "language": "Русский",
+      "genre": "fsdfdsfdsfdsf",
+      "id": 957689683
     }
   ],
   "authors": [

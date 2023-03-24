@@ -3,6 +3,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Nunito, "Helvetica Neue", sans-serif; }
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap');
+@import 'assets/colors';
 *,
 .mat-typography h1,
 .mat-typography h2,

@@ -4,19 +4,18 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  padding: 40px;
 
-  .book{
+  .book-form {
     width: 80%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 
-    .author{
-      width: 200px;
+    .actions {
+      display: flex;
+      gap: 20px;
+      justify-content: flex-end;
     }
-  }
-
-  .button{
-    width: 200px;
   }
 }

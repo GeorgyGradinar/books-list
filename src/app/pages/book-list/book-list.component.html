@@ -4,6 +4,8 @@
 </app-book-filters>
 
 <div class="block-books">
+  <span *ngIf="!filteredBooks?.length" class="info-message">Книги не найдены</span>
+
   <app-book-show *ngFor="let book of filteredBooks"
                  [routerLink]="['/', routes.BOOK_CARD, book.id]"
                  [book]="book"></app-book-show>
